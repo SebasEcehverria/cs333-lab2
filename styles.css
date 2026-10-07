@@ -227,3 +227,24 @@ footer a:hover {
   background-color: #6c63ff;
   color: white;
 }
+
+.control-panel {
+  margin: 20px auto;
+  color: #DBEDF3;
+  font-size: 1rem;
+}
+
+.control-panel label {
+  margin-right: 8px;
+}
+
+.control-panel select {
+  padding: 8px 12px;
+
+  font-size: 1rem;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+}

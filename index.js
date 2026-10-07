@@ -13,6 +13,9 @@ let isRecording = false;
 // Keeps track of whether the beat is looping.
 let isLooping = false;
 
+// Keeps track of whether the drums use click or mouseover.
+let eventMode = "click";
+
 // When a normal recording started.
 let recordingStartTime = 0;
 
@@ -29,27 +32,60 @@ console.log("Number of drum buttons:", drumButtons.length);
 
 
 // ------------------------------------
-// CLICK EVENTS
+// EVENT MODE
 // ------------------------------------
 
-// Loop through every drum button and add a click event listener.
+// Change between click mode and mouseover mode.
+document.getElementById("eventMode").addEventListener("change", function (event) {
+
+    eventMode = event.target.value;
+
+    console.log("Event mode changed to:", eventMode);
+});
+
+
+// ------------------------------------
+// MOUSE EVENTS
+// ------------------------------------
+
+// Handles drum input from either a click or mouseover event.
+function handleDrumInput(event) {
+
+    // event.target is the exact button that caused the event.
+    let buttonKey = event.target.innerHTML.toLowerCase();
+
+    console.log("Drum played with mouse:", buttonKey);
+
+    // Save the hit if we are currently recording.
+    recordHit(buttonKey);
+
+    // Play the correct drum sound.
+    playSound(buttonKey);
+
+    // Make the button react visually.
+    buttonAnimation(buttonKey);
+}
+
+
+// Loop through every drum button.
 for (let i = 0; i < drumButtons.length; i++) {
 
+    // Play the drum when clicked if click mode is selected.
     drumButtons[i].addEventListener("click", function (event) {
 
-        // event.target is the exact button that was clicked.
-        let buttonKey = event.target.innerHTML.toLowerCase();
+        if (eventMode === "click") {
+            handleDrumInput(event);
+        }
+    });
 
-        console.log("Button clicked:", buttonKey);
 
-        // Save the hit if we are currently recording.
-        recordHit(buttonKey);
+    // Play the drum when the mouse moves over it
+    // if mouseover mode is selected.
+    drumButtons[i].addEventListener("mouseover", function (event) {
 
-        // Play the correct drum sound.
-        playSound(buttonKey);
-
-        // Make the button react visually.
-        buttonAnimation(buttonKey);
+        if (eventMode === "mouseover") {
+            handleDrumInput(event);
+        }
     });
 }
 
