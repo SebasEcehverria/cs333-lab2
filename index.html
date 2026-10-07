@@ -4,32 +4,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Drum Kit</title>
+
+  <title>Sebass's Drum Kit</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <h1 id="title">Drum 🥁 Kit</h1>
-  <div class="set">
-    <button class="w drum">w</button>
-    <button class="a drum">a</button>
-    <button class="s drum">s</button>
-    <button class="d drum">d</button>
-    <button class="j drum">j</button>
-    <button class="k drum">k</button>
-    <button class="l drum">l</button>
-  </div>
+  <header>
+    <h1 id="title">Drum 🥁 Kit</h1>
+
+    <p class="instructions">
+      Click the drums or use
+      <strong>W A S D J K L</strong>
+      on your keyboard.
+    </p>
+  </header>
+
+
+  <main>
+
+    <div class="set">
+      <button class="w drum">w</button>
+      <button class="a drum">a</button>
+      <button class="s drum">s</button>
+      <button class="d drum">d</button>
+      <button class="j drum">j</button>
+      <button class="k drum">k</button>
+      <button class="l drum">l</button>
+    </div>
+
+
+    <div class="recorder">
+
+      <h2>🎵 Beat Recorder</h2>
+
+      <button id="recordButton">
+        🔴 Record
+      </button>
+
+      <button id="stopButton">
+        ⏹ Stop
+      </button>
+
+      <button id="playButton">
+        ▶ Play Beat
+      </button>
+
+      <button id="loopButton">
+        🔁 Loop Beat
+      </button>
+
+      <p id="recordStatus">
+        Ready to record!
+      </p>
+
+    </div>
+
+  </main>
 
 
   <footer>
-  
+
+    <p>
+      CS333 Lab 2 • Sebastian Echeverria
+    </p>
+
+    <a href="../">
+      ← Back to Home
+    </a>
+
   </footer>
-  <a href="../">← Home</a>
+
 
   <script src="index.js"></script>
+
 </body>
 
 </html>
